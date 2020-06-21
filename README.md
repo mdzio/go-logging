@@ -1,13 +1,7 @@
 # go-logging
 
-go-logging ist ein Log-Framework in der Programmiersprache Go (golang).
+go-logging is a logging framework in the programming language [Go](https://golang.org).
 
-# Lizenz und Haftungsausschluss
+## License
 
-Dieses Projekt steht unter der [GNU General Public License V3](LICENSE.txt).
-
-# Autoren
-
-Copyright (c) 2020
-
-* Mathias Dzionsko
+This work is licensed under the [GNU General Public License V3](LICENSE.txt).
