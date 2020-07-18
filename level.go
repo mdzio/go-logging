@@ -34,8 +34,8 @@ var (
 
 // String returns a string representation of the stored level. This function is
 // part of the flag.Value interface.
-func (l *LogLevel) String() string {
-	return levelStr[*l]
+func (l LogLevel) String() string {
+	return levelStr[l]
 }
 
 // Set updates the log level. Valid identifiers are: off, error, warning, info,
@@ -53,6 +53,17 @@ func (l *LogLevel) Set(value string) error {
 		}
 	}
 	return errInvalidLevelIdent
+}
+
+// MarshalText implements TextUnmarshaler (for e.g. JSON encoding). For the
+// method to be found by the JSON encoder, use a value receiver.
+func (l LogLevel) MarshalText() ([]byte, error) {
+	return []byte(l.String()), nil
+}
+
+// UnmarshalText implements TextMarshaler (for e.g. JSON decoding).
+func (l *LogLevel) UnmarshalText(text []byte) error {
+	return l.Set(string(text))
 }
 
 // LogLevelFlag can be used with flag.Var and sets/gets the active level.
