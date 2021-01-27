@@ -2,7 +2,6 @@ package logging
 
 import (
 	"errors"
-	"fmt"
 	"strings"
 )
 
@@ -87,9 +86,4 @@ func (*LogLevelFlag) Set(value string) error {
 	}
 	SetLevel(l)
 	return nil
-}
-
-func test() {
-	var v *LogLevelFlag
-	fmt.Println(v.String())
 }
